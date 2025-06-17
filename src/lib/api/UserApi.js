@@ -65,3 +65,13 @@ export const userUpdatePassword = async (token, {password}) => {
     })
   })
 }
+
+export const userLogout = async(token) => {
+ return fetch(`${import.meta.env.VITE_URL_API}/users/logout`, {
+    method: "DELETE",
+    headers: {
+      "Accept": "application/json",
+      "Authorization": token
+    },
+  })
+}
