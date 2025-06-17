@@ -12,3 +12,17 @@ export const userRegister = async ({username, password, name}) => {
     })
   })
 }
+
+export const userLogin = async ({username, password}) => {
+  return fetch(`${import.meta.env.VITE_URL_API}/users/login`, {
+    method: "POST",
+    headers: {
+      'Content-Type': "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({
+      username, 
+      password,
+    })
+  })
+} 
