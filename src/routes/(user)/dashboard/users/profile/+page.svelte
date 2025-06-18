@@ -5,9 +5,10 @@
     userUpdateName,
     userUpdatePassword,
   } from "$lib/api/UserApi";
+  import { getLocalStorage } from "$lib/utils/localStorage";
   import { onMount } from "svelte";
 
-  const token = localStorage.getItem("token");
+  const token = getLocalStorage("token");
 
   const user = $state({
     name: "",

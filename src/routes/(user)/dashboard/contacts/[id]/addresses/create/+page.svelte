@@ -4,11 +4,12 @@
   import { alertError, alertSuccess } from "$lib/alert";
   import { addressCreate } from "$lib/api/AddressApi";
   import { contactDetail } from "$lib/api/ContactApi";
+  import { getLocalStorage } from "$lib/utils/localStorage";
   import { onMount } from "svelte";
 
   const { id } = page.params;
 
-  const token = localStorage.getItem("token");
+  const token = getLocalStorage("token");
 
   let contact = $state({
     id: id,

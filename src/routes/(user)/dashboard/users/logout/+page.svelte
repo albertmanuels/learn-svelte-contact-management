@@ -2,9 +2,10 @@
   import { goto } from "$app/navigation";
   import { alertError } from "$lib/alert";
   import { userLogout } from "$lib/api/UserApi";
+  import { getLocalStorage } from "$lib/utils/localStorage";
   import { onMount } from "svelte";
 
-  const token = localStorage.getItem("token");
+  const token = getLocalStorage("token");
 
   async function handleLogout() {
     if (token) {

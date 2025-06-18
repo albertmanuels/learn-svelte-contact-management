@@ -2,8 +2,9 @@
   import { goto } from "$app/navigation";
   import { alertError, alertSuccess } from "$lib/alert";
   import { contactCreate } from "$lib/api/ContactApi";
+  import { getLocalStorage } from "$lib/utils/localStorage";
 
-  const token = localStorage.getItem("token");
+  const token = getLocalStorage("token");
 
   let contact = $state({
     first_name: "",

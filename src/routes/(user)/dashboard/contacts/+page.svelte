@@ -1,10 +1,11 @@
 <script>
   import { alertConfirm, alertError, alertSuccess } from "$lib/alert";
   import { contactDelete, contactList } from "$lib/api/ContactApi";
+  import { getLocalStorage } from "$lib/utils/localStorage";
   import toggleSearchForm from "$lib/utils/toggleSearchForm";
   import { onMount } from "svelte";
 
-  const token = localStorage.getItem("token");
+  const token = getLocalStorage("token");
 
   const search = $state({
     name: "",
