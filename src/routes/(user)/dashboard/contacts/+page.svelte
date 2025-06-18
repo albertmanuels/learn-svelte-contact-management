@@ -7,6 +7,7 @@
   import CreatNewContactCard from "./components/CreatNewContactCard.svelte";
   import ContactCard from "./components/ContactCard.svelte";
   import Pagination from "$lib/components/Pagination.svelte";
+  import PageTitle from "$lib/components/PageTitle.svelte";
 
   const token = getLocalStorage("token");
 
@@ -37,11 +38,11 @@
   });
 </script>
 
-<div class="flex items-center mb-6">
+{#snippet icon()}
   <i class="fas fa-users text-blue-400 text-2xl mr-3"></i>
-  <h1 class="text-2xl font-bold text-white">My Contacts</h1>
-</div>
+{/snippet}
 
+<PageTitle title="My Contacts" {icon} />
 <SearchForm {fetchContacts} {search} />
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

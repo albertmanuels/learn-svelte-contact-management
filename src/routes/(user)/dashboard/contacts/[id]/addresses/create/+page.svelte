@@ -4,6 +4,7 @@
   import { alertError, alertSuccess } from "$lib/alert";
   import { addressCreate } from "$lib/api/AddressApi";
   import { contactDetail } from "$lib/api/ContactApi";
+  import PageTitle from "$lib/components/PageTitle.svelte";
   import { getLocalStorage } from "$lib/utils/localStorage";
   import { onMount } from "svelte";
 
@@ -57,17 +58,17 @@
   });
 </script>
 
-<div class="flex items-center mb-6">
-  <a
-    href="/dashboard/contacts/{contact.id}"
-    class="text-blue-400 hover:text-blue-300 mr-4 flex items-center transition-colors duration-200"
-  >
-    <i class="fas fa-arrow-left mr-2"></i> Back to Contact Details
-  </a>
-  <h1 class="text-2xl font-bold text-white flex items-center">
-    <i class="fas fa-plus-circle text-blue-400 mr-3"></i> Add New Address
-  </h1>
-</div>
+{#snippet icon()}
+  <i class="fas fa-plus-circle text-blue-400 mr-3"></i>
+{/snippet}
+
+<PageTitle
+  title="Add New Address"
+  {icon}
+  withBackButton={true}
+  backButtonText="Back to Contact Details"
+  backTo="/dashboard/contacts/{contact.id}"
+/>
 
 <div
   class="bg-gray-800 bg-opacity-80 rounded-xl shadow-custom border border-gray-700 overflow-hidden max-w-2xl mx-auto animate-fade-in"

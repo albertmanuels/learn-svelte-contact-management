@@ -9,6 +9,7 @@
   import { onMount } from "svelte";
   import EditProfileCard from "./components/EditProfileCard.svelte";
   import EditPasswordCard from "./components/EditPasswordCard.svelte";
+  import PageTitle from "$lib/components/PageTitle.svelte";
 
   const token = getLocalStorage("token");
 
@@ -44,10 +45,11 @@
   }
 </script>
 
-<div class="flex items-center mb-6">
+{#snippet icon()}
   <i class="fas fa-user-cog text-blue-400 text-2xl mr-3"></i>
-  <h1 class="text-2xl font-bold text-white">My Profile</h1>
-</div>
+{/snippet}
+
+<PageTitle title="My Profile" {icon} />
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
   <EditProfileCard />

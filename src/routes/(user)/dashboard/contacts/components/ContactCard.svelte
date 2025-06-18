@@ -1,8 +1,8 @@
 <script>
   import { alertConfirm, alertError, alertSuccess } from "$lib/alert";
-  import { contactDelete, fetchContacts } from "$lib/api/ContactApi";
+  import { contactDelete } from "$lib/api/ContactApi";
 
-  const { contact } = $props();
+  const { contact, fetchContacts } = $props();
 
   async function handleDeleteContact(id) {
     if (!(await alertConfirm("Are you sure want to delete this contact?"))) {

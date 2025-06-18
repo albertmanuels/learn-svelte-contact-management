@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { alertError, alertSuccess } from "$lib/alert";
   import { contactCreate } from "$lib/api/ContactApi";
+  import PageTitle from "$lib/components/PageTitle.svelte";
   import { getLocalStorage } from "$lib/utils/localStorage";
 
   const token = getLocalStorage("token");
@@ -34,17 +35,16 @@
   }
 </script>
 
-<div class="flex items-center mb-6">
-  <a
-    href="/dashboard/contacts"
-    class="text-blue-400 hover:text-blue-300 mr-4 flex items-center transition-colors duration-200"
-  >
-    <i class="fas fa-arrow-left mr-2"></i> Back to Contacts
-  </a>
-  <h1 class="text-2xl font-bold text-white flex items-center">
-    <i class="fas fa-user-plus text-blue-400 mr-3"></i> Create New Contact
-  </h1>
-</div>
+{#snippet icon()}
+  <i slot="icon" class="fas fa-user-plus text-blue-400 mr-3"></i>
+{/snippet}
+
+<PageTitle
+  title="Create New Contact"
+  {icon}
+  withBackButton={true}
+  backTo="/dashboard/contacts"
+/>
 
 <div
   class="bg-gray-800 bg-opacity-80 rounded-xl shadow-custom border border-gray-700 overflow-hidden max-w-2xl mx-auto animate-fade-in"
